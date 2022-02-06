@@ -67,11 +67,11 @@ The script will download the dataset from S3 and store it under `datasets/walker
 We also provide implementation of 5 offline RL algorithms for evaluating the datasets
 | Offline RL method | Name | Paper |
 |---|---|---|
-| Behavior Cloning | `bc` |  [paper]()|
-| CQL | `cql` |  [paper](https://arxiv.org/abs/2103.04551)|
-| CRR | `crr` |[paper](https://arxiv.org/abs/1802.06070)|
-| TD3+BC | `td3_bc` | [paper](https://arxiv.org/abs/1906.04161) |
-| TD3 | `td3` | [paper](https://arxiv.org/abs/1705.05363)|
+| Behavior Cloning | `bc` |  [paper](https://proceedings.neurips.cc/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf)|
+| CQL | `cql` |  [paper](https://arxiv.org/pdf/2006.04779.pdf)|
+| CRR | `crr` |[paper](https://arxiv.org/pdf/2006.15134.pdf)|
+| TD3+BC | `td3_bc` | [paper](https://arxiv.org/pdf/2106.06860.pdf) |
+| TD3 | `td3` | [paper](https://arxiv.org/pdf/1802.09477.pdf)|
 
 After downloading required datasets, you can evaluate it using offline RL methon for a specific task. For example, to evaluate a dataset collected by ProtoRL on Walker for the waling task using TD3+BC you can run
 ```sh
