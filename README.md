@@ -10,11 +10,7 @@ This is an original PyTorch implementation of the ExORL framework from
 
 *Equal contribution.
 
-## Method
-
-
-
-## Instructions
+## Prerequisites
 
 Install [MuJoCo](http://www.mujoco.org/) if it is not already the case:
 
@@ -36,11 +32,55 @@ conda env create -f conda_env.yml
 conda activate exorl
 ```
 
-Download datasets by using `./download.sh <DOMAIN> <ALGO>` command, for example to download ProtoRL dataset for Walker, run
+## Datasets
+We provide exploratory datasets for 6 DeepMind Control Stuite domains
+| Domain | Dataset name | Available task names |
+|---|---|---|
+| Cartpole | `cartpole` | `cartpole_balance`, `cartpole_balance_sparse`, `cartpole_swingup`, `cartpole_swingup_sparse` |
+| Cheetah | `cheetah` | `cheetah_run`, `cheetah_run_backward` |
+| Jaco Arm | `jaco` | `jaco_reach_top_left`, `jaco_reach_top_right`, `jaco_reach_bottom_left`, `jaco_reach_bottom_right` |
+| Point Mass Maze | `point_mass_maze` | `point_mass_maze_reach_top_left`, `point_mass_maze_reach_top_right`, `point_mass_maze_reach_bottom_left`, `point_mass_maze_reach_bottom_right`  | 
+| Quadruped | `quadruped` | `quadruped_walk`, `quadruped_run` |
+| Walker | `walker` | `walker_stand`, `walker_walk`, `walker_run` |
+
+
+For each domain we collected datasets by running 9 unsupervised RL algorithms from [URLB](https://github.com/rll-research/url_benchmark) for total of `10M` steps. Here is the list of algorithms
+| Unsupervised RL method | Name | Paper |
+|---|---|---|
+| APS | `aps` |  [paper](http://proceedings.mlr.press/v139/liu21b.html)|
+| APT(ICM) | `icm_apt` |  [paper](https://arxiv.org/abs/2103.04551)|
+| DIAYN | `diayn` |[paper](https://arxiv.org/abs/1802.06070)|
+| Disagreement | `disagreement` | [paper](https://arxiv.org/abs/1906.04161) |
+| ICM | `icm` | [paper](https://arxiv.org/abs/1705.05363)|
+| ProtoRL | `proto` | [paper](https://arxiv.org/abs/2102.11271)|
+| Random | `random` |  N/A |
+| RND | `agent=rnd` |  [paper](https://arxiv.org/abs/1810.12894) |
+| SMM | `agent=smm` |  [paper](https://arxiv.org/abs/1906.05274) |
+
+You can download a dataset by running `./download.sh <DOMAIN> <ALGO>`, for example to download ProtoRL dataset for Walker, run
 ```sh
 ./download.sh walker proto
 ```
-It will download the dataset from S3 and store it under `datasets/walker/proto/`, where you can find episodes (under `buffer`) and episode videos (under `video`).
+The script will download the dataset from S3 and store it under `datasets/walker/proto/`, where you can find episodes (under `buffer`) and episode videos (under `video`).
+
+## Offline RL training
+We also provide implementation of 5 offline RL algorithms for evaluating the datasets
+| Offline RL method | Name | Paper |
+|---|---|---|
+| Behavior Cloning | `bc` |  [paper]()|
+| CQL | `cql` |  [paper](https://arxiv.org/abs/2103.04551)|
+| CRR | `crr` |[paper](https://arxiv.org/abs/1802.06070)|
+| TD3+BC | `td3_bc` | [paper](https://arxiv.org/abs/1906.04161) |
+| TD3 | `td3` | [paper](https://arxiv.org/abs/1705.05363)|
+
+After downloading required datasets, you can evaluate it using offline RL methon for a specific task. For example, to evaluate a dataset collected by ProtoRL on Walker for the waling task using TD3+BC you can run
+```sh
+python train_offline.py agent=td3_bc expl_agent=proto task=walker_walk
+```
+Logs are stored in the `output` folder. To launch tensorboard run:
+```sh
+tensorboard --logdir output
+```
 
 ## Citation
 
