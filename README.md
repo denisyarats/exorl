@@ -54,8 +54,8 @@ For each domain we collected datasets by running 9 unsupervised RL algorithms fr
 | ICM | `icm` | [paper](https://arxiv.org/abs/1705.05363)|
 | ProtoRL | `proto` | [paper](https://arxiv.org/abs/2102.11271)|
 | Random | `random` |  N/A |
-| RND | `agent=rnd` |  [paper](https://arxiv.org/abs/1810.12894) |
-| SMM | `agent=smm` |  [paper](https://arxiv.org/abs/1906.05274) |
+| RND | `rnd` |  [paper](https://arxiv.org/abs/1810.12894) |
+| SMM | `smm` |  [paper](https://arxiv.org/abs/1906.05274) |
 
 You can download a dataset by running `./download.sh <DOMAIN> <ALGO>`, for example to download ProtoRL dataset for Walker, run
 ```sh
