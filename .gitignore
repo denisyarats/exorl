@@ -1,0 +1,10 @@
+__pycache__/
+.ipynb_checkpoints/
+exp_local
+output
+nbs
+tmp/
+notebooks/
+slurm/
+data/
+datasets/
