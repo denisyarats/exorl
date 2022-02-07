@@ -14,10 +14,9 @@ This is an original PyTorch implementation of the ExORL framework from
 
 Install [MuJoCo](http://www.mujoco.org/) if it is not already the case:
 
-* Obtain a license on the [MuJoCo website](https://www.roboti.us/license.html).
-* Download MuJoCo binaries [here](https://www.roboti.us/index.html).
-* Unzip the downloaded archive into `~/.mujoco/mujoco200` and place your license key file `mjkey.txt` at `~/.mujoco`.
-* Use the env variables `MUJOCO_PY_MJKEY_PATH` and `MUJOCO_PY_MUJOCO_PATH` to specify the MuJoCo license key path and the MuJoCo directory path.
+* Download MuJoCo binaries [here](https://mujoco.org/download).
+* Unzip the downloaded archive into `~/.mujoco/` and place your license key file `mjkey.txt` at `~/.mujoco`.
+* Use the env variable `MUJOCO_PY_MUJOCO_PATH` to specify the MuJoCo directory path.
 * Append the MuJoCo subdirectory bin path into the env variable `LD_LIBRARY_PATH`.
 
 Install the following libraries:
